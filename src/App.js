@@ -1,22 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [jwtPayload, setJWTPayload] = useState({
+    userRefCode: 'user-id-1234',
+    userDisplayName: 'John Doe',
+    redeemCode: 'event123'
+  })
+
+  function signToken(payload){
+    const signedToken = jwt.sign(payload, process.env.REACT_APP_PUBLIC_KEY)
+    const rerunLink = process.env.REACT_APP_BASE_URL+signedToken
+    return rerunLink 
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h2>Ticket Platform</h2>
+        
+        <button>
+          <a href={signToken(jwtPayload)} target='_blank'>รับชม Rerun Event</a>
+        </button>
       </header>
     </div>
   );
