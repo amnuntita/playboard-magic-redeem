@@ -17,6 +17,15 @@ function App() {
   return (
     <div className="App">
       <h2>Ticket Platform</h2>
+      <p>
+      The JWT payload needs to look like this <br></br>
+        userRefCode: string <br></br>
+        userDisplayName: string <br></br>
+        redeemCode: string <br></br> 
+      </p>
+      <p>Redeem Code and public key needs to matched the one you set up on Playboard
+        <br/> See how to setup everything on Playboard: <a href="https://linear.app/inox/issue/PDP-1231/ผู้ชมสามารถรับชม-event-ได้โดยไม่ต้องสร้าง-account">Here</a>
+      </p>
       <div>
         Domain:{" "}
         <input
@@ -34,6 +43,7 @@ function App() {
       <p>
         Input your signed token here Ref:{" "}
         <a href="https://dinochiesa.github.io/jwt/">JWT Generator</a>
+        <br></br>
       </p>
       <textarea rows={10} value={inputValue} onChange={handleChange} />
       <button>
