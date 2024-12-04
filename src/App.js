@@ -30,14 +30,14 @@ function App() {
         Domain:{" "}
         <input
           value={domain}
-          handleChange={(e) => setDomain(e.target.value)}
+          onChange={(e) => setDomain(e.target.value)}
         ></input>
       </div>
       <div>
         Your brand slug:{" "}
         <input
           value={brandSlug}
-          handleChange={(e) => setBrandSlug(e.target.value)}
+          onChange={(e) => setBrandSlug(e.target.value)}
         ></input>
       </div>
       <p>
